@@ -16,5 +16,6 @@ class Profile(models.Model):
     description = models.TextField(blank=True)
     mobile_1 = models.IntegerField(blank=True, null=True)
     mobile_2 = models.IntegerField(blank=True, null=True)
+    
     def __str__(self):
         return f'Profile for user {self.user.username}'
