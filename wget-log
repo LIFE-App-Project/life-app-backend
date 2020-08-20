@@ -1,0 +1,25 @@
+--2020-08-15 12:44:18--  https://vscode-update.azurewebsites.net/latest/linux-deb-x64/stable
+Resolving vscode-update.azurewebsites.net (vscode-update.azurewebsites.net)... 40.83.182.206
+Connecting to vscode-update.azurewebsites.net (vscode-update.azurewebsites.net)|40.83.182.206|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://update.code.visualstudio.com/latest/linux-deb-x64/stable [following]
+--2020-08-15 12:44:20--  https://update.code.visualstudio.com/latest/linux-deb-x64/stable
+Resolving update.code.visualstudio.com (update.code.visualstudio.com)... 51.144.164.215
+Connecting to update.code.visualstudio.com (update.code.visualstudio.com)|51.144.164.215|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://az764295.vo.msecnd.net/stable/db40434f562994116e5b21c24015a2e40b2504e6/code_1.48.0-1597304990_amd64.deb [following]
+--2020-08-15 12:44:21--  https://az764295.vo.msecnd.net/stable/db40434f562994116e5b21c24015a2e40b2504e6/code_1.48.0-1597304990_amd64.deb
+Resolving az764295.vo.msecnd.net (az764295.vo.msecnd.net)... 152.199.19.160
+Connecting to az764295.vo.msecnd.net (az764295.vo.msecnd.net)|152.199.19.160|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 62705292 (60M) [application/x-debian-package]
+Saving to: ‘/tmp/code_latest_amd64.deb’
+
+/tmp/code_latest_amd64.deb      3%[>                                              ]   2.17M  52.7KB/s    in 35s     
+
+2020-08-15 12:59:58 (62.9 KB/s) - Read error at byte 2277374/62705292 (Success). Retrying.
+
+--2020-08-15 12:59:59--  (try: 2)  https://az764295.vo.msecnd.net/stable/db40434f562994116e5b21c24015a2e40b2504e6/code_1.48.0-1597304990_amd64.deb
+Connecting to az764295.vo.msecnd.net (az764295.vo.msecnd.net)|152.199.19.160|:443... failed: Network is unreachable.
+Resolving az764295.vo.msecnd.net (az764295.vo.msecnd.net)... failed: Temporary failure in name resolution.
+wget: unable to resolve host address ‘az764295.vo.msecnd.net’

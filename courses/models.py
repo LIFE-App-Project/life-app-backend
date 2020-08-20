@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class Subject(models.Model):
@@ -50,4 +52,14 @@ class Module(models.Model):
         return f'{self.order}. {self.title}'
 
 
+class Content(models.Model):
+    module = models.ForeignKey(Module, related_name='content', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    summary = models.TextField(blank=True, null=True)
+    body = RichTextUploadingField()
 
+    class Meta:
+        ordering = ['body']
+    
+    def __str__(self):
+        return self.title
