@@ -126,37 +126,25 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
             obj.save()
             if not id:
             # new content
-                Content.objects.create(module=self.module,item=obj)
+                Content.objects.create(module=self.module)
             return redirect('module_content_list', self.module.id)
         return self.render_to_response({'form': form,'object': self.obj})
 
 
 
 class ModuleContentListView(TemplateResponseMixin, View):
+    model = Content
     template_name = 'courses/manage/module/content_list.html'
+
     def get(self, request, module_id):
         module = get_object_or_404(Module,
                                     id=module_id,
                                     course__owner=request.user)
         return self.render_to_response({'module': module})
+    
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(owner=self.request.user)
 
 
-# @login_required
-# def edit(request):
-#     if request.method == "POST":
-#         user_form = UserEditForm(instance=request.user, data=request.POST)
 
-#         profile_form = ProfileEditForm(
-#             instance=request.user.profile, data=request.POST, files=request.FILES)
-
-#         if user_form.is_valid() and profile_form.is_valid():
-#             user_form.save()
-#             profile_form.save()
-#             messages.success(request, "Profile updated successfully")
-#         else:
-#             messages.error(request, 'Error updating your profile')
-#     else:
-#         user_form = UserEditForm(instance=request.user)
-#         profile_form = ProfileEditForm(instance=request.user.profile)
-
-#     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})

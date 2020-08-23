@@ -17,6 +17,7 @@ urlpatterns = [
     path('<pk>/module/',
         views.CourseModuleUpdateView.as_view(),
         name='course_module_update'),
+        
     path('module/<int:module_id>/',
         views.ModuleContentListView.as_view(),
         name='module_content_list'),

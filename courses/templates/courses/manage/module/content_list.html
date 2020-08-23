@@ -33,6 +33,7 @@
             <h3>Module contents:</h3>
             <div id="module-contents">
                 {% for content in module.contents.all %}
+                    <p>{{ content.body }}</p>
                     <div data-id="{{ content.id }}">
                         {% with item=content.item %}
                             <p>{{ item }} ({{ item|model_name }})</p>
@@ -49,8 +50,14 @@
             </div>
             <h3>Add new content:</h3>
             <ul class="content-types">
-                <li><a href="{% url "module_content_create" module.id 'content' %}">Text</a></li>
+                <li><a href="{% url "module_content_create" module.id 'content' %}">Add New</a></li>
             </ul>
         </div>
     {% endwith %}
+
+    
+    {% for content in object_list %}
+        <h2>{{content.body}}</h2>
+    {% endfor %}
+        
 {% endblock %}
